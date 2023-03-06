@@ -1,21 +1,31 @@
-﻿Console.Write("Informe o número a ser verificado: ");
+﻿int number;
+interacaoUsuario();
+respostaUsuario();
 
-if (!int.TryParse(Console.ReadLine(), out var num))
+// função com apenas um retorno:
+bool ehPAr(int valor)
 {
-    Console.WriteLine("Precisa ser número inteiro!");
-}
-else
-{
-    VerificarSeEhPar();
-}
-void VerificarSeEhPar()
-{
-    if (num % 2 == 0)
+    bool answer = false;
+    if (valor % 2 == 0)
     {
-        Console.WriteLine("É Par!");
+        answer = true;
+    }
+    return answer;
+}
+void interacaoUsuario()
+{
+    Console.Write("Informe um número para verificar se é par ou ímpar: ");
+    if (!int.TryParse(Console.ReadLine(), out number))
+    {
+        Console.WriteLine("Valor inválido!!\n" +
+                          "Preciso de um valor inteiro!");
     }
     else
-    {
-        Console.WriteLine("É impar!");
-    }
+        ehPAr(number);
+}
+void respostaUsuario()
+{
+    if (ehPAr(number))
+        Console.WriteLine("{0}, é par!", number);
+    else Console.WriteLine("{0} é impar!", number);
 }
