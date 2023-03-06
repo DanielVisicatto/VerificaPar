@@ -6,6 +6,10 @@ if (!int.TryParse(Console.ReadLine(), out var num))
 }
 else
 {
+    VerificarSeEhPar();
+}
+void VerificarSeEhPar()
+{
     if (num % 2 == 0)
     {
         Console.WriteLine("É Par!");
